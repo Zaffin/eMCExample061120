@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <MastercamSDK>C:\Program Files (x86)\Mastercam 2020\Mastercam\sdk\</MastercamSDK>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MastercamSDK);$(MastercamSDK)interfaces\guibase;$(MastercamSDK)interfaces\gui;$(MastercamSDK)interfaces\corebase;$(MastercamSDK)interfaces\core;$(MastercamSDK)interfaces\bnci;$(MastercamSDK)interfaces\cad;$(MastercamSDK)interfaces\control;$(MastercamSDK)interfaces\geomsld;$(MastercamSDK)interfaces\lathe;$(MastercamSDK)interfaces\machinedef;$(MastercamSDK)interfaces\mill;$(MastercamSDK)interfaces\post;$(MastercamSDK)interfaces\msurf;$(MastercamSDK)interfaces\wire;$(MastercamSDK)interfaces\uictrls;$(MastercamSDK)interfaces\tool;$(MastercamSDK)interfaces\tlcore;$(MastercamSDK)interfaces\systypes;$(MastercamSDK)interfaces\CurveSurfGeom;$(MastercamSDK)interfaces\Observable;$(MastercamSDK)interfaces\Math;$(MastercamSDK)NGP\Core\h;$(MastercamSDK)NGP\Core\gaf\base\misc\h;$(MastercamSDK)3rdParty\BCGCBPro\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(MastercamSDK)x64\debug;$(MastercamSDK)3rdParty\BCGCBPro\libx64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MCUI5Ax.lib;MCCoreBase.lib;UICtrls.lib;SysTypes.lib;McIPC.lib;TPGeom.lib;Math.lib;MCMpParameters.lib;MCKernel.lib;ToolNetApi.lib;VistaFileDialogs.lib;Mastercam.lib;MCCore.lib;MCProbe.lib;MCTool.lib;MCMachineDef.lib;MCMill.lib;MCGuiBase.lib;MCGeomSld.lib;MCLathe.lib;bnci.lib;MCOReader.lib;MCPrvVerFile.lib;MCIk.lib;MCMSurf.lib;MCPost.lib;MCMultiax.lib;MCVerify.lib;MCWire.lib;MCCAD.lib;MCRouter.lib;TlCore.lib;MCCADUtil.lib;RibbonUI.lib;TPIFTools.lib;MCCE.lib;TPFiveAx.lib;MCCurveSurfGeom.lib;MCControl.lib;MCRtClasses.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="MastercamSDK">
+      <Value>$(MastercamSDK)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

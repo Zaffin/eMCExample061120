@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>eMCExample061120</RootNamespace>
     <AssemblyName>eMCExample061120</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,7 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NETHook3_0">
-      <HintPath>..\..\..\..\..\..\Program Files\mcam2017\NETHook3_0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Mastercam 2020\Mastercam\NETHook3_0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,41 +65,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FunctionTable\Resource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\MainView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\MainView.Designer.cs">
-      <DependentUpon>MainView.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FunctionTable\Assets\Run16.png" />
-    <Content Include="FunctionTable\Assets\Run24.png" />
-    <Content Include="ReadMeFirst\customize.png" />
-    <Content Include="ReadMeFirst\ReadMeFirst.txt" />
+    <ProjectReference Include="..\eMCExample061120Native\eMCExample061120Native.vcxproj">
+      <Project>{b4117d7c-35a4-437d-9733-54883a7428e7}</Project>
+      <Name>eMCExample061120Native</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="FunctionTable\PROJECT_NAME.ft" />
-    <None Include="ReadMeFirst\ProjectSetup.docx" />
-    <None Include="ReadMeFirst\ProjectSetup.pdf" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FunctionTable\Resource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files\mcam2017\chooks\$(TargetFileName)"
-copy "$(ProjectDir)FunctionTable\$(TargetName).ft" "C:\Program Files\mcam2017\chooks\$(TargetName).ft"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files\Mastercam 2020\Mastercam\chooks\$(TargetFileName)"
+copy "$(SolutionDir)x64\Debug\eMCExample061120Native.dll" "C:\Program Files\Mastercam 2020\Mastercam\chooks\eMCExample061120Native.dll"
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
